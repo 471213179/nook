@@ -1,6 +1,7 @@
 {
+  "version": 2,
   "routes": [
-    { "src": "/", "dest": "/index.html" },  // 根目录优先
-    { "src": "/public/(.*)", "dest": "/public/$1" }  // 允许访问 public 下的文件
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/public/(.*)", "dest": "/public/$1" }
   ]
 }
