@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/", "dest": "/index.html" },  // 确保根目录返回 index.html
+    { "src": "/(.*)", "dest": "/index.html" }  // SPA 路由支持
+  ]
+}
