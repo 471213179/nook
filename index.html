@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="45-T80DMSZ3EzRBCcDYZRT706Q7eOR13UmQu0Jgnk4A" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Ziggy's Animal Crossing Shop: Get access to all your favorite Animal Crossing items, services, and resources." />
   <meta name="keywords" content="Animal Crossing, Ziggy, Treasure Island, DIYs, furniture, clothing, bells, NMTs, Animal Crossing Shop" />
   <meta property="og:title" content="Ziggy's Animal Crossing Shop" />
@@ -12,186 +11,640 @@
   <meta property="og:url" content="https://nook-peach.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://i.postimg.cc/zXz4GrK8/F5-FD0-FFB-6226-4-ADA-9-F67-98-D67-A57-C4-E9.jpg" />
-  <meta name="twitter:site" content="@your-twitter-handle" />
   <link rel="icon" href="4.ico" type="image/x-icon" />
   <title>Ziggy's Animal Crossing Shop</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Arial', sans-serif;
+      background: linear-gradient(145deg, #f9f7f3 0%, #f0ede8 100%);
+      padding: 2rem 1.5rem;
       text-align: center;
-      background-color: #f8f8f8;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
     }
 
     h1 {
-      color: #333;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #3b7a3e, #a8e6a3);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.3px;
     }
 
-    img {
-      margin: 5px;
-      border-radius: 8px;
+    .subhead {
+      font-size: 1.1rem;
+      color: #4b5e3b;
+      background: #eef4e0;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+    }
+
+    .trust-message {
+      background: #fff9e8;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      margin-bottom: 1.8rem;
+      font-weight: 500;
+      color: #2c5e2a;
+      border: 1px solid #e0e7cf;
+    }
+
+    .hero-img {
+      max-width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+      margin: 1rem 0 2rem 0;
+      transition: transform 0.2s ease;
+    }
+    .hero-img:hover {
+      transform: scale(1.01);
     }
 
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 2rem 0 2rem;
+      background: rgba(255,248,235,0.4);
+      padding: 1rem;
+      border-radius: 48px;
     }
-
     .gallery img {
-      width: 150px;
-      height: auto;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 8px 14px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 2px solid transparent;
     }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      background-color: #25D366;
-      color: white;
-      padding: 10px 16px;
-      margin: 10px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .button img {
-      width: 24px;
-      height: 24px;
-      margin-right: 8px;
-      border-radius: 4px;
-    }
-
-    .notice {
-      font-size: 0.95em;
-      color: #555;
-      margin-top: 15px;
+    .gallery img:hover {
+      transform: scale(1.03);
+      border-color: #b6e1a0;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
     }
 
     .link-section {
-      margin-top: 30px;
+      margin: 2rem 0 2rem;
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      border-radius: 56px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+    }
+
+    .link-section h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #3a5e34;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .link-section h2:before {
+      content: "✨";
+      font-size: 1.8rem;
+    }
+    .link-section h2:after {
+      content: "🍃";
+      font-size: 1.8rem;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 28px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: #1f2e1c;
+      letter-spacing: 0.3px;
+    }
+    .action-btn img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+
+    /* Dynamic WhatsApp Button */
+    .whatsapp-dynamic {
+      background: linear-gradient(105deg, #25D366 0%, #20b859 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .whatsapp-dynamic::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+    .whatsapp-dynamic:hover::before {
+      opacity: 0.6;
+      animation: shimmer 0.9s ease-in-out;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-30%) rotate(25deg); opacity: 0; }
+      30% { opacity: 0.7; }
+      100% { transform: translateX(30%) rotate(25deg); opacity: 0; }
+    }
+    .whatsapp-dynamic {
+      animation: gentlePulse 2.2s infinite ease-in-out;
+    }
+    @keyframes gentlePulse {
+      0% { box-shadow: 0 4px 12px rgba(37,211,102,0.2), 0 0 0 0 rgba(37,211,102,0.4); transform: scale(1);}
+      50% { box-shadow: 0 8px 20px rgba(37,211,102,0.4), 0 0 0 6px rgba(37,211,102,0.2); transform: scale(1.02);}
+      100% { box-shadow: 0 4px 12px rgba(37,211,102,0.2), 0 0 0 0 rgba(37,211,102,0); transform: scale(1);}
+    }
+    .whatsapp-dynamic:hover {
+      animation: none;
+      transform: scale(1.05) translateY(-3px);
+      background: linear-gradient(105deg, #34e07a, #1fae4e);
+      box-shadow: 0 16px 28px rgba(0,0,0,0.2);
+    }
+    .whatsapp-dynamic img {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Contact Me Button */
+    .contact-me-btn {
+      background: linear-gradient(115deg, #FFB347, #FF8C33);
+      color: white;
+      position: relative;
+      transition: all 0.25s;
+      box-shadow: 0 10px 20px rgba(245,166,35,0.3);
+    }
+    .contact-me-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: linear-gradient(115deg, #ffaa44, #ff7b1c);
+      box-shadow: 0 18px 28px rgba(245,130,35,0.4);
+    }
+    .contact-me-btn:active {
+      transform: translateY(1px);
+    }
+    .contact-me-btn::after {
+      content: "💬";
+      margin-left: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    .contact-me-btn:hover::after {
+      transform: translateX(5px) rotate(5deg);
+    }
+
+    .kofi-btn {
+      background: #ff5e5b;
+      color: white;
+    }
+    .paypal-btn {
+      background: #0070ba;
+      color: white;
+    }
+    .kofi-btn:hover, .paypal-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.02);
+      box-shadow: 0 14px 22px rgba(0,0,0,0.12);
+    }
+
+    .notice {
+      background: #eef0e4d0;
+      backdrop-filter: blur(8px);
+      border-radius: 40px;
+      padding: 1.4rem;
+      margin: 2rem auto 1rem;
+      font-size: 0.9rem;
+      color: #2b4826;
+      max-width: 600px;
+      border: 1px solid #cbdba7;
+    }
+    .notice p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 1rem; }
+      .button-group { gap: 16px; flex-direction: column; align-items: stretch; }
+      .action-btn { justify-content: center; width: 100%; max-width: 280px; margin: 0 auto; }
+      .gallery { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+      h1 { font-size: 1.8rem; }
+    }
+
+    .extra-chat-note {
+      background: #fff1cf;
+      border-radius: 32px;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.7rem;
+      color: #6f6f64;
+    }
+
+    /* Modal Styles */
+    #contactModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(30,30,20,0.75);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #FFFEF7;
+      border-radius: 56px;
+      max-width: 460px;
+      width: 85%;
+      padding: 2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 30px 45px rgba(0,0,0,0.3);
+      animation: modalPop 0.3s cubic-bezier(0.34,1.2,0.64,1);
+    }
+    @keyframes modalPop {
+      0% { opacity: 0; transform: scale(0.92); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .modal-content h3 {
+      font-size: 2rem;
+      color: #5d8233;
+      margin-bottom: 0.25rem;
+    }
+    .modal-content p {
+      color: #544c3c;
+      margin-bottom: 1.5rem;
+    }
+    .contact-option {
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 80px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.2s;
+      margin-bottom: 12px;
+    }
+    .contact-option:hover {
+      transform: scale(1.02);
+      filter: brightness(1.05);
+    }
+    .contact-option.secondary {
+      background: #20b359;
+    }
+    .contact-option.email {
+      background: #e0cf9b;
+      color: #4a3e2b;
+    }
+    .copy-btn {
+      background: #f2ede2;
+      border: 1px solid #d4cfbc;
+      border-radius: 80px;
+      padding: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .close-modal-btn {
+      background: #a3b899;
+      border: none;
+      padding: 8px 24px;
+      border-radius: 40px;
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .dynamic-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #2f3e2ecc;
+      backdrop-filter: blur(10px);
+      color: #fff9e3;
+      padding: 10px 18px;
+      border-radius: 80px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 9999;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      font-family: inherit;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
+<div class="container">
+  <h1>🍃 Ziggy's Animal Crossing Shop 🍂</h1>
+  <div class="subhead">✨ Treasure Island · DIYs · Furniture · Bells ✨</div>
 
-  <h1>Welcome to Ziggy's Animal Crossing Shop!</h1>
-
-  <p>You can try the service before paying. I believe trust and satisfaction are the most important.</p >
-
-  <!-- Main Image -->
-  <img src="main.png" alt="Main Item" style="max-width: 100%;" />
-
-  <!-- Gallery -->
-  <div class="gallery">
-    <!-- Item Images from 1 to 73 -->
-    <img src="item%20(1).jpg" alt="Item 1">
-    <img src="item%20(2).jpg" alt="Item 2">
-    <img src="item%20(3).jpg" alt="Item 3">
-    <img src="item%20(4).jpg" alt="Item 4">
-    <img src="item%20(5).jpg" alt="Item 5">
-    <img src="item%20(6).jpg" alt="Item 6">
-    <img src="item%20(7).jpg" alt="Item 7">
-    <img src="item%20(8).jpg" alt="Item 8">
-    <img src="item%20(9).jpg" alt="Item 9">
-    <img src="item%20(10).jpg" alt="Item 10">
-    <img src="item%20(11).jpg" alt="Item 11">
-    <img src="item%20(12).jpg" alt="Item 12">
-    <img src="item%20(13).jpg" alt="Item 13">
-    <img src="item%20(14).jpg" alt="Item 14">
-    <img src="item%20(15).jpg" alt="Item 15">
-    <img src="item%20(16).jpg" alt="Item 16">
-    <img src="item%20(17).jpg" alt="Item 17">
-    <img src="item%20(18).jpg" alt="Item 18">
-    <img src="item%20(19).jpg" alt="Item 19">
-    <img src="item%20(20).jpg" alt="Item 20">
-    <img src="item%20(21).jpg" alt="Item 21">
-    <img src="item%20(22).jpg" alt="Item 22">
-    <img src="item%20(23).jpg" alt="Item 23">
-    <img src="item%20(24).jpg" alt="Item 24">
-    <img src="item%20(25).jpg" alt="Item 25">
-    <img src="item%20(26).jpg" alt="Item 26">
-    <img src="item%20(27).jpg" alt="Item 27">
-    <img src="item%20(28).jpg" alt="Item 28">
-    <img src="item%20(29).jpg" alt="Item 29">
-    <img src="item%20(30).jpg" alt="Item 30">
-    <img src="item%20(31).jpg" alt="Item 31">
-    <img src="item%20(32).jpg" alt="Item 32">
-    <img src="item%20(33).jpg" alt="Item 33">
-    <img src="item%20(34).jpg" alt="Item 34">
-    <img src="item%20(35).jpg" alt="Item 35">
-    <img src="item%20(36).jpg" alt="Item 36">
-    <img src="item%20(37).jpg" alt="Item 37">
-    <img src="item%20(38).jpg" alt="Item 38">
-    <img src="item%20(39).jpg" alt="Item 39">
-    <img src="item%20(40).jpg" alt="Item 40">
-    <img src="item%20(41).jpg" alt="Item 41">
-    <img src="item%20(42).jpg" alt="Item 42">
-    <img src="item%20(43).jpg" alt="Item 43">
-    <img src="item%20(44).jpg" alt="Item 44">
-    <img src="item%20(45).jpg" alt="Item 45">
-    <img src="item%20(46).jpg" alt="Item 46">
-    <img src="item%20(47).jpg" alt="Item 47">
-    <img src="item%20(48).jpg" alt="Item 48">
-    <img src="item%20(49).jpg" alt="Item 49">
-    <img src="item%20(50).jpg" alt="Item 50">
-    <img src="item%20(51).jpg" alt="Item 51">
-    <img src="item%20(52).jpg" alt="Item 52">
-    <img src="item%20(53).jpg" alt="Item 53">
-    <img src="item%20(54).jpg" alt="Item 54">
-    <img src="item%20(55).jpg" alt="Item 55">
-    <img src="item%20(56).jpg" alt="Item 56">
-    <img src="item%20(57).jpg" alt="Item 57">
-    <img src="item%20(58).jpg" alt="Item 58">
-    <img src="item%20(59).jpg" alt="Item 59">
-    <img src="item%20(60).jpg" alt="Item 60">
-    <img src="item%20(61).jpg" alt="Item 61">
-    <img src="item%20(62).jpg" alt="Item 62">
-    <img src="item%20(63).jpg" alt="Item 63">
-    <img src="item%20(64).jpg" alt="Item 64">
-    <img src="item%20(65).jpg" alt="Item 65">
-    <img src="item%20(66).jpg" alt="Item 66">
-    <img src="item%20(67).jpg" alt="Item 67">
-    <img src="item%20(68).jpg" alt="Item 68">
-    <img src="item%20(69).jpg" alt="Item 69">
-    <img src="item%20(70).jpg" alt="Item 70">
-    <img src="item%20(71).jpg" alt="Item 71">
-    <img src="item%20(72).jpg" alt="Item 72">
-    <img src="item%20(73).jpg" alt="Item 73">
+  <div class="trust-message">
+    <span>🐾</span> Try before you pay — trust & satisfaction come first <span>🌸</span>
   </div>
 
-  <!-- Links Section -->
+  <img src="main.png" alt="Main Item" class="hero-img" style="max-width: 100%; width: auto;" />
+
+  <div class="gallery" id="dynamicGallery"></div>
+
+  <!-- Dynamic WhatsApp Button + Contact Me Button Side by Side -->
   <div class="link-section">
-    <h2>Join & Contact</h2>
+    <h2>Join & Connect</h2>
+    <div class="button-group">
+      <!-- Dynamic WhatsApp Group Button -->
+      <a href="#" id="whatsappGroupBtn" class="action-btn whatsapp-dynamic">
+        <img src="3.jpg" alt="WhatsApp"> 
+        ✦ WhatsApp Group ✦
+      </a>
 
-    <!-- WhatsApp Group -->
-    <a href=" " target="_blank" class="button">
-      <img src="3.jpg" alt="WhatsApp"> Join our WhatsApp Group
-    </a >
+      <!-- Dynamic Personal WhatsApp Button -->
+      <a href="https://wa.me/message/7P7UAIDXASWIP1?src=qr" target="_blank" id="whatsappPersonalBtn" class="action-btn whatsapp-dynamic">
+        <img src="3.jpg" alt="WhatsApp">
+        💬 Main WhatsApp Chat
+      </a>
 
-    <!-- Personal WhatsApp -->
-    <a href="https://wa.me/message/7P7UAIDXASWIP1?src=qr" target="_blank" class="button" style="background-color: #128C7E;">
-      <img src="3.jpg" alt="WhatsApp"> Main communication via WhatsApp
-    </a >
+      <!-- Contact Me Button (New, beside WhatsApp) -->
+      <button id="contactMeModalBtn" class="action-btn contact-me-btn">
+        📞 Contact Me
+      </button>
+    </div>
 
-    <!-- Ko-fi -->
-    <a href="https://ko-fi.com/ziggy0623" target="_blank" class="button" style="background-color: #ff5e5b;">
-      <img src="1.jpg" alt="Ko-fi"> Buy me a coffee on Ko-fi
-    </a >
-
-    <!-- PayPal -->
-    <a href="https://www.paypal.me/ziggy0623" target="_blank" class="button" style="background-color: #0070ba;">
-      <img src="2.jpg" alt="PayPal"> Pay via PayPal (after chat confirmation)
-    </a >
+    <!-- Ko-fi & PayPal -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 28px;">
+      <a href="https://ko-fi.com/ziggy0623" target="_blank" class="action-btn kofi-btn">
+        <img src="1.jpg" alt="Ko-fi"> Buy me a coffee
+      </a>
+      <a href="https://www.paypal.me/ziggy0623" target="_blank" class="action-btn paypal-btn">
+        <img src="2.jpg" alt="PayPal"> PayPal (after chat)
+      </a>
+    </div>
+    <div class="extra-chat-note">
+      💡 Click "Contact Me" for all ways to reach me instantly
+    </div>
   </div>
 
   <div class="notice">
-    <p>Live chat is available in the bottom-right corner. I'll get your message on my phone!</p >
-    <p>Note: The chat widget may disappear if I'm offline, but you can always reach me on WhatsApp!</p >
+    <p>💬 Live chat available (bottom-right corner). I'll receive messages on my phone!</p>
+    <p>📱 Chat widget may disappear offline — always reach me via WhatsApp or the "Contact Me" button ✨</p>
   </div>
+</div>
 
-  <!-- Tawk.to Chat Widget -->
-  <script type="text/javascript">
+<!-- Contact Modal -->
+<div id="contactModal">
+  <div class="modal-content">
+    <h3>✨ Contact Ziggy ✨</h3>
+    <p>Choose your preferred way — I usually reply within minutes 🍃</p>
+    <a href="https://wa.me/message/7P7UAIDXASWIP1?src=qr" target="_blank" class="contact-option">
+      📲 Send WhatsApp Message (Fastest)
+    </a>
+    <a href="#" id="modalGroupLink" target="_blank" class="contact-option secondary">
+      🧑‍🤝‍🧑 Join WhatsApp Community
+    </a>
+    <a href="mailto:ziggy@acnhshop.com?subject=Animal%20Crossing%20Inquiry" class="contact-option email">
+      ✉️ Send Email
+    </a>
+    <button id="copyWAPersonal" class="copy-btn">
+      📋 Copy WhatsApp Number
+    </button>
+    <small style="color: #8f7e64; display: block; margin-top: 8px;">Or use live chat widget at bottom-right corner</small>
+    <button class="close-modal-btn" onclick="closeContactModal()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <p>© Ziggy's Animal Crossing Shop — All your favorite items in one place</p>
+</footer>
+
+<script>
+  // Generate gallery images 1-73
+  const galleryContainer = document.getElementById('dynamicGallery');
+  if (galleryContainer) {
+    for (let i = 1; i <= 73; i++) {
+      const img = document.createElement('img');
+      img.src = `item (${i}).jpg`;
+      img.alt = `Item ${i}`;
+      img.loading = 'lazy';
+      img.onerror = function() {
+        if (!this.dataset.fallback) {
+          this.dataset.fallback = 'true';
+          this.src = 'https://placehold.co/150x150/e6f0da/7d9f5e?text=item';
+        }
+      };
+      galleryContainer.appendChild(img);
+    }
+  }
+
+  // Toast notification
+  function showToast(msg, duration = 2000) {
+    let toast = document.querySelector('.dynamic-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'dynamic-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    clearTimeout(window.toastTimeout);
+    window.toastTimeout = setTimeout(() => {
+      toast.style.opacity = '0';
+    }, duration);
+  }
+
+  // WhatsApp Group Button Handler (demo - redirects to contact modal)
+  const groupBtn = document.getElementById('whatsappGroupBtn');
+  if (groupBtn) {
+    groupBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('✨ Get group invite via "Contact Me" button ✨', 2500);
+      openContactModal();
+    });
+  }
+
+  // Modal logic
+  const modal = document.getElementById('contactModal');
+  const contactBtn = document.getElementById('contactMeModalBtn');
+  
+  window.openContactModal = function() {
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  window.closeContactModal = function() {
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+  
+  if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openContactModal();
+    });
+  }
+  
+  // Set modal group link to same handler
+  const modalGroupLink = document.getElementById('modalGroupLink');
+  if (modalGroupLink) {
+    modalGroupLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeContactModal();
+      showToast('✨ Please contact me via WhatsApp for group invite ✨', 2500);
+      setTimeout(() => {
+        window.open('https://wa.me/message/7P7UAIDXASWIP1?src=qr', '_blank');
+      }, 300);
+    });
+  }
+  
+  // Copy WhatsApp number function
+  const copyBtnElem = document.getElementById('copyWAPersonal');
+  if (copyBtnElem) {
+    copyBtnElem.addEventListener('click', () => {
+      navigator.clipboard.writeText('+1 (555) 123-4567 (Contact Ziggy via WhatsApp)').then(() => {
+        showToast('✅ Contact info copied! Open WhatsApp and message me', 2000);
+      }).catch(() => {
+        showToast('📋 Manual copy: wa.me/message/7P7UAIDXASWIP1', 1800);
+      });
+    });
+  }
+  
+  // Close modal when clicking outside
+  window.onclick = function(e) {
+    if (e.target === modal) closeContactModal();
+  };
+  
+  // Add hover tip for WhatsApp buttons
+  const style = document.createElement('style');
+  style.textContent = `
+    .whatsapp-dynamic {
+      position: relative;
+    }
+    .whatsapp-dynamic:hover::after {
+      content: "⚡ Quick reply · Direct chat ⚡";
+      position: absolute;
+      bottom: -38px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1f3b1a;
+      color: #f6ffe0;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: normal;
+      white-space: nowrap;
+      z-index: 120;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeInUp 0.2s forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; bottom: -20px; }
+      to { opacity: 1; bottom: -38px; }
+    }
+    @media (max-width: 600px) {
+      .whatsapp-dynamic:hover::after { display: none; }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Add click feedback to all WhatsApp buttons
+  document.querySelectorAll('.whatsapp-dynamic').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.style.transform = 'scale(0.98)';
+      setTimeout(() => { btn.style.transform = ''; }, 120);
+    });
+  });
+  
+  // Fix broken images for buttons
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      if (!this.dataset.fixed && this.src && !this.src.includes('placehold')) {
+        this.dataset.fixed = 'true';
+        if (this.alt.includes('Ko-fi')) this.src = 'https://cdn.ko-fi.com/cdn/cup-border.png';
+        else if (this.alt.includes('PayPal')) this.src = 'https://cdn-icons-png.flaticon.com/512/174/174861.png';
+        else if (this.alt.includes('WhatsApp')) this.src = 'https://cdn-icons-png.flaticon.com/512/733/733585.png';
+        else this.src = 'https://placehold.co/28x28/25D366/white?text=WA';
+      }
+    });
+  });
+  
+  // Tawk.to Chat Widget
+  if (!document.querySelector('script[src*="embed.tawk.to/6821e655"]')) {
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -201,7 +654,8 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
-  </script>
+  }
+</script>
 
 </body>
 </html>
